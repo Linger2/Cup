@@ -31,7 +31,9 @@ myApp.dashboard = (function($) {
       data: 'api_key=' + apikey + '&custom_uptime_ratios=1-2-3-4-5-6-7-30&format=json&logs=1&logs_limit=100',
       dataType: 'json',
       success: function(str) {
-        placeServer(str.monitors[0], ids);
+        for(var i in str.monitors){
+          placeServer(str.monitors[i], ids);
+        }
       }
     });
   }
